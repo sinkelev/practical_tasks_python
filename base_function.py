@@ -1,6 +1,7 @@
 import re
 import os
 import time
+import datetime
 
 
 def delete_a(s):
@@ -31,7 +32,8 @@ def func_time(func):
         start_time = time.perf_counter()
         func(*args)
         time_work = time.perf_counter() - start_time
-        print(f'Функция {func.__name__} выполнялась {time_work} сек')
+        result = datetime.timedelta(seconds=time_work).total_seconds()
+        print(f"Функция {func.__name__} выполнялась {format(result, '.5f')} сек")
     return wrapped
 
 
@@ -72,8 +74,8 @@ def lucky_tickets():
 # lucky_tickets()
 price = [
     {"наименование": "Спички", "цена": 1},
-    {"наименование": "Лук", "цена": 37},
     {"наименование": "Сок", "цена": 60},
+    {"наименование": "Лук", "цена": 37},
     {"наименование": "Горох", "цена": 50},
 ]
 sort_dict(price)

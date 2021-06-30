@@ -52,9 +52,9 @@ def change_month(date, month):
     if new_month == 0:
         new_month = 12
     if month >= 0:
-        new_year = date_format.year + (date_format.month // 12 + month // 12)
+        new_year = date_format.year + (date_format.month + month) // 12
     else:
-        new_year = date_format.year - (date_format.month // 12 - month // 12)
+        new_year = date_format.year + (date_format.month + month - 1) // 12
     new_day = date_format.day
     last_day_of_month = calendar.monthrange(new_year, new_month)[1]
     if new_day > last_day_of_month:
@@ -69,4 +69,4 @@ def change_month(date, month):
 # first_day_of_month()
 # last_day_of_month()
 # one_month_later('30.01.21')
-# change_month('30.03.12', -1)
+# change_month('11.11.11', 7)
