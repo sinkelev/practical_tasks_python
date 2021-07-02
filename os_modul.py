@@ -20,7 +20,11 @@ def new_folder(path, name):
 
 
 def join_folder_and_filename(folder, filename):
-    """Склеить путь из папки и файла. Первый аргумент папка, второй название файла."""
+    """
+    Склеить путь из папки и файла.
+    Первый аргумент папка, второй название файла.
+    """
+
     print(os.path.join(folder, filename))
 
 
@@ -32,7 +36,8 @@ def calc():
     all_files = 0
     dirs_count = 0
 
-    for i in os.walk('C:/Users/va.sinkelev/AppData/Local/Programs/Python/Python39'):
+    for i in os.walk('C:/Users/va.sinkelev/AppData/'
+                     'Local/Programs/Python/Python39'):
         folder.append(i)
 
     for address, dirs, files in folder:
